@@ -14,6 +14,11 @@
     <button type="submit" value="Submit">Search</button>
 </form>
 
+<form th:action="@{/search}" th:object="${brand}" method="get">
+    <input type="search" name="search" />
+    <button type="submit" value="Submit">Search for Brand</button>
+</form>
+
 <table>
 
     <table class="table table-hover table-dark">
