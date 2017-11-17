@@ -3,7 +3,8 @@ package com.greenfox.orientationexam.model;
 import javax.persistence.*;
 
 @Entity
-public class Car {
+@Table(name = "licence_plate")
+public class licencePlate {
 
     @Id
     String plate;
@@ -12,11 +13,11 @@ public class Car {
     String year;
     String color;
 
-    public Car(){
+    public licencePlate(){
 
     }
 
-    public Car(String plate,String brand, String model , String year, String color){
+    public licencePlate(String plate, String brand, String model , String year, String color){
 
         this.plate=plate;
         this.brand = brand;

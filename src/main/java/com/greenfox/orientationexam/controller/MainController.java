@@ -15,7 +15,7 @@ public class MainController {
 
     @GetMapping(value = "/")
     public String index(Model model){
-        model.addAttribute("cars" , carRepo.findAll() );
+        model.addAttribute("cars" , carRepo.findAll());
         return "cars";
 
     }
