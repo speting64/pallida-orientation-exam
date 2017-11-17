@@ -30,6 +30,14 @@ public class MainController {
         return "cars";
     }
 
+    @GetMapping(value = "/search/{brand}")
+    public String searchByBrand(Model model , @RequestParam (required = false) String search){
+        if(search != null) {
+            model.addAttribute("cars", carRepo.findAllByBrandIsLike("Audi"));
+        }
+        return "cars";
+    }
+
 
 
 

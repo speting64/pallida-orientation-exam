@@ -22,10 +22,10 @@ public class OrientationexamApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		carRepo.save(new LicencePlate("MXS-803","Subaru","Legacy","Pink","2001", true , false));
 		carRepo.save(new LicencePlate("JUO-705", "Infiniti", "M", "Crimson", "2004", true , false));
-		carRepo.save(new LicencePlate("JUO-705", "Infiniti", "M", "Crimson", "2004", false , true));
-		//todoRepository.save(new ToDo("I have to use H2 database"));
+		carRepo.save(new LicencePlate("RB99-01", "Audi", "R8", "White", "2011" , false , true));
 
-		//assigneeRepository.save(new Assignee("Andris","andris12@greenfox.com"));
+
+
 
 	}
 }
