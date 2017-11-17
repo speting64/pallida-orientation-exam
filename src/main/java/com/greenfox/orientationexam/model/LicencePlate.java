@@ -27,8 +27,8 @@ public class LicencePlate {
         this.model = model;
         this.year = year;
         this.color = color;
-        this.isPoliceCar=isPoliceCar;
-        this.isDiplomat=isDiplomat;
+        this.isPoliceCar=false;
+        this.isDiplomat=false;
     }
 
 
