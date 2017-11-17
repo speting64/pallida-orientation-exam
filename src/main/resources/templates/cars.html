@@ -33,7 +33,9 @@
             <td scope="row" data-th-text="${car.getYear()}"></td>
             <td scope="row" data-th-text="${car.getColor()}"></td>
             <td scope="row" data-th-text="${car.getYear()}"></td>
-            <td scope="row" data-th-text="${car.getColor()}"></td>
+            <td scope="row" data-th-text="${car.getColor()}"></td><td>
+            <td scope="row" data-th-text=="${car.isPoliceCar()} ? 'RB' : 'NO'"></td>
+            <td scope="row" data-th-text=="${car.isDiplomat()} ? 'DT' : 'NO'"></td>
         </tr>
         </tbody>
     </table>
