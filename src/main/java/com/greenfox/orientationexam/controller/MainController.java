@@ -19,5 +19,10 @@ public class MainController {
         return "cars";
     }
 
-    @GetMapping(value="/")
+    @GetMapping(value = "/search")
+    public String search
+
+
+
+    /*@GetMapping(value="/")*/
 }

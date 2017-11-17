@@ -25,10 +25,10 @@
         <tbody>
         <tr th:each="car : ${cars}">
             <td scope="row" data-th-text="${car.getPlate()}"></td>
-            <td scope="row" data-th-text="${message.getBrand()}"></td>
-            <td scope="row" data-th-text="${message.getModel()}"></td>
-            <td scope="row" data-th-text="${message.getYear()}"></td>
-            <td scope="row" data-th-text="${message.getColor()}"></td>
+            <td scope="row" data-th-text="${car.getBrand()}"></td>
+            <td scope="row" data-th-text="${car.getModel()}"></td>
+            <td scope="row" data-th-text="${car.getYear()}"></td>
+            <td scope="row" data-th-text="${car.getColor()}"></td>
         </tr>
         </tbody>
     </table>

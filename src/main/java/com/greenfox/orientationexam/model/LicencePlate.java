@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "licence_plate")
-public class licencePlate {
+public class LicencePlate {
 
     @Id
     String plate;
@@ -12,18 +12,23 @@ public class licencePlate {
     String model;
     String year;
     String color;
+    boolean isPoliceCar;
+    boolean isDiplomat;
 
-    public licencePlate(){
+    public LicencePlate(){
 
     }
 
-    public licencePlate(String plate, String brand, String model , String year, String color){
+    public LicencePlate(String plate, String brand, String model , String year, String color,
+                        boolean isPoliceCar,boolean isDiplomat){
 
         this.plate=plate;
         this.brand = brand;
         this.model = model;
         this.year = year;
         this.color = color;
+        this.isPoliceCar=isPoliceCar;
+        this.isDiplomat=isDiplomat;
     }
 
 
@@ -65,5 +70,21 @@ public class licencePlate {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public boolean isPoliceCar() {
+        return isPoliceCar;
+    }
+
+    public void setPoliceCar(boolean policeCar) {
+        isPoliceCar = policeCar;
+    }
+
+    public boolean isDiplomat() {
+        return isDiplomat;
+    }
+
+    public void setDiplomat(boolean diplomat) {
+        isDiplomat = diplomat;
     }
 }
