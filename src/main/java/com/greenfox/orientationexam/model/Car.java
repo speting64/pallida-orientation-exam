@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Car {
 
+    @Id
     String plate;
     String brand;
     String model;
