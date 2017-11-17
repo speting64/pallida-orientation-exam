@@ -17,6 +17,7 @@ public class MainController {
     public String index(Model model){
         model.addAttribute("cars" , carRepo.findAll());
         return "cars";
-
     }
+
+    @GetMapping(value="/")
 }
