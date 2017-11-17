@@ -12,8 +12,8 @@ public class LicencePlate {
     String model;
     String year;
     String color;
-    boolean isPoliceCar;
-    boolean isDiplomat;
+    boolean policeCar;
+    boolean diplomat;
 
     public LicencePlate(){
 
@@ -27,8 +27,8 @@ public class LicencePlate {
         this.model = model;
         this.year = year;
         this.color = color;
-        this.isPoliceCar=false;
-        this.isDiplomat=false;
+        this.policeCar=false;
+        this.diplomat=false;
     }
 
 
@@ -73,18 +73,18 @@ public class LicencePlate {
     }
 
     public boolean isPoliceCar() {
-        return isPoliceCar;
+        return policeCar;
     }
 
     public void setPoliceCar(boolean policeCar) {
-        isPoliceCar = policeCar;
+        this.policeCar=policeCar;
     }
 
     public boolean isDiplomat() {
-        return isDiplomat;
+        return diplomat;
     }
 
     public void setDiplomat(boolean diplomat) {
-        isDiplomat = diplomat;
+        this.diplomat=diplomat;
     }
 }
