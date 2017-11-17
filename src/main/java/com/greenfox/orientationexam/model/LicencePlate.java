@@ -19,7 +19,7 @@ public class LicencePlate {
 
     }
 
-    public LicencePlate(String plate, String brand, String model , String year, String color,
+    public LicencePlate(String plate, String brand, String model , String color, String year,
                         boolean isPoliceCar,boolean isDiplomat){
 
         this.plate=plate;

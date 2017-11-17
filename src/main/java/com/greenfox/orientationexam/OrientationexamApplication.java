@@ -20,8 +20,9 @@ public class OrientationexamApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		carRepo.save(new LicencePlate("MXS-803","Subaru","Legacy","Pink","2001" , true , false));
-		//todoRepository.save(new ToDo("I have to master Java Persistent API"));
+		carRepo.save(new LicencePlate("MXS-803","Subaru","Legacy","Pink","2001", true , false));
+		carRepo.save(new LicencePlate("JUO-705", "Infiniti", "M", "Crimson", "2004", true , false));
+		carRepo.save(new LicencePlate("JUO-705", "Infiniti", "M", "Crimson", "2004", false , true));
 		//todoRepository.save(new ToDo("I have to use H2 database"));
 
 		//assigneeRepository.save(new Assignee("Andris","andris12@greenfox.com"));
