@@ -5,14 +5,25 @@ import javax.persistence.*;
 @Entity
 public class Car {
 
-    @Id
-
-
     String plate;
     String brand;
     String model;
     String year;
     String color;
+
+    public Car(){
+
+    }
+
+    public Car(String plate,String brand, String model , String year, String color){
+
+        this.plate=plate;
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.color = color;
+    }
+
 
     public String getPlate() {
         return plate;
