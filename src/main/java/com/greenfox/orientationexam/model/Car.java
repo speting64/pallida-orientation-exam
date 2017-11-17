@@ -5,18 +5,21 @@ import javax.persistence.*;
 @Entity
 public class Car {
 
-    String licencePlate;
+    @Id
+
+
+    String plate;
     String brand;
     String model;
-    Integer year;
+    String year;
     String color;
 
-    public String getLicencePlate() {
-        return licencePlate;
+    public String getPlate() {
+        return plate;
     }
 
-    public void setLicencePlate(String licencePlate) {
-        this.licencePlate = licencePlate;
+    public void setPlate(String plate) {
+        this.plate = plate;
     }
 
     public String getBrand() {
@@ -35,11 +38,11 @@ public class Car {
         this.model = model;
     }
 
-    public Integer getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(Integer year) {
+    public void setYear(String year) {
         this.year = year;
     }
 

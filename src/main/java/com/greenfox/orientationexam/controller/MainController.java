@@ -9,7 +9,9 @@ public class MainController {
 
     @GetMapping(value = "/")
     public String index(Model model){
-        model.addAttribute("")
+        model.addAttribute("cars");
+        return "cars";
+
     }
 
 
