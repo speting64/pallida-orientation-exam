@@ -9,7 +9,7 @@
 <body>
 <h1>PLATE</h1>
 
-<form th:action="@{/cars}" th:object="${search}" method="get">
+<form th:action="@{/search}" th:object="${search}" method="get">
     <input type="search" name="search" />
     <button type="submit" value="Submit">Search</button>
 </form>
@@ -22,8 +22,8 @@
             <th scope="col">Plate</th>
             <th scope="col">brand</th>
             <th scope="col">Model</th>
-            <th scope="col">Year</th>
             <th scope="col">Color</th>
+            <th scope="col">Year</th>
             <th scope="col">Police Car?</th>
             <th scope="col">Diplomat?</th>
 
@@ -35,10 +35,8 @@
             <td scope="row" data-th-text="${car.getPlate()}"></td>
             <td scope="row" data-th-text="${car.getBrand()}"></td>
             <td scope="row" data-th-text="${car.getModel()}"></td>
-            <td scope="row" data-th-text="${car.getYear()}"></td>
             <td scope="row" data-th-text="${car.getColor()}"></td>
             <td scope="row" data-th-text="${car.getYear()}"></td>
-            <td scope="row" data-th-text="${car.getColor()}"></td>
             <td scope="row" data-th-text="${car.isPoliceCar()} ? 'RB' : 'NO'"></td>
             <td scope="row" data-th-text="${car.isDiplomat()} ? 'DT' : 'NO'"></td>
         </tr>

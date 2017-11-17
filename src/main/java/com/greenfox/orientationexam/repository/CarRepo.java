@@ -10,5 +10,6 @@ import java.util.List;
 public interface CarRepo extends CrudRepository <LicencePlate, String> {
 
     List<LicencePlate>findAllByPlateIsLike(String plate);
+    List<LicencePlate>findAllByBrandIsLike(String brand);
 
 }
