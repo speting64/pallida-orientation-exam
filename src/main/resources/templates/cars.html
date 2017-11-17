@@ -9,6 +9,11 @@
 <body>
 <h1>PLATE</h1>
 
+<form th:action="@{/cars}" th:object="${search}" method="get">
+    <input type="search" name="search" />
+    <button type="submit" value="Submit">Search</button>
+</form>
+
 <table>
 
     <table class="table table-hover table-dark">

@@ -22,7 +22,7 @@ public class MainController {
         return "cars";
     }
 
-    @GetMapping(value = "/search")
+    @GetMapping(value = "/search{}")
     public String search(Model model , @RequestParam (required = false) String search){
         if(search != null) {
             model.addAttribute("cars", carRepo.findAllByPlateIsLike("%" + search + "%"));
