@@ -34,9 +34,9 @@ public class MainController {
     }
 
     @GetMapping(value = "/search/{brand}")
-    public String searchByBrand(Model model , @RequestParam (required = false) String search){
-        if(search != null) {
-            model.addAttribute("cars", carRepo.findAllByBrandIsLike("%" + search + "%"));
+    public String searchByBrand(Model model , @RequestParam (required = true) String search2){
+        if(search2 != null) {
+            model.addAttribute("cars", carRepo.findAllByBrandIsLike("%" + search2 + "%"));
         }
         return "cars";
     }

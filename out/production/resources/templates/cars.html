@@ -14,7 +14,7 @@
     <button type="submit" value="Submit">Search</button>
 </form>
 
-<form th:action="@{/search}" th:object="${brand}" method="get">
+<form th:action="@{/search}" th:object="${search2}" method="get">
     <input type="search" name="search" />
     <button type="submit" value="Submit">Search for Brand</button>
 </form>
@@ -44,6 +44,7 @@
             <td scope="row" data-th-text="${car.getYear()}"></td>
             <td scope="row" data-th-text="${car.isPoliceCar()} ? 'RB' : 'NO'"></td>
             <td scope="row" data-th-text="${car.isDiplomat()} ? 'DT' : 'NO'"></td>
+            <td><a th:href="'/cars/' + ${car.getPlate()} + '/update'" role="button" class="btn btn-primary">Edit</a></td>
         </tr>
         </tbody>
     </table>
