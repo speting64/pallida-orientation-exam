@@ -11,5 +11,9 @@ public interface CarRepo extends CrudRepository <LicencePlate, String> {
 
     List<LicencePlate>findAllByPlateIsLike(String plate);
     List<LicencePlate>findAllByBrandIsLike(String brand);
+    List<LicencePlate>findAllByBrandStartsWith(String brand);
+    List<LicencePlate>findAllPlateStartsWith(String plate);
+    List<LicencePlate>findAllByBrand(String brand);
+
 
 }

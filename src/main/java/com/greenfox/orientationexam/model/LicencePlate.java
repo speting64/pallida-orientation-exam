@@ -1,14 +1,22 @@
 package com.greenfox.orientationexam.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "licence_plate")
+@Table(name = "licence_plates")
 public class LicencePlate {
 
     @Id
     String plate;
+
+    @Column(name = "car_brand")  //Translates in the SQL table
+    @JsonProperty(value = "car_brand")
     String brand;
+
+    @Column(name = "car_model")
+    @JsonProperty(value = "car_model")
     String model;
     String year;
     String color;

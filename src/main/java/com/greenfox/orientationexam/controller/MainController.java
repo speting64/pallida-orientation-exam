@@ -1,5 +1,6 @@
 package com.greenfox.orientationexam.controller;
 
+import com.greenfox.orientationexam.model.ApiResponse;
 import com.greenfox.orientationexam.model.LicencePlate;
 import com.greenfox.orientationexam.repository.CarRepo;
 
@@ -9,63 +10,50 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import sun.misc.Cache;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+import java.util.List;
+
 
 @Controller
 public class MainController {
 
-    String plate;
 
     @Autowired
     CarRepo carRepo;
 
-    @GetMapping(value = "/")
-    public String index(Model model ){
-        model.addAttribute("cars" , carRepo.findAll());
-        return "cars";
-    }
-
     @GetMapping(value = "/search")
-    public String search(Model model , @RequestParam (required = false) String search){
-        if(search != null) {
-            model.addAttribute("cars", carRepo.findAllByPlateIsLike("%" + search + "%"));
+    public String index(Model model ,
+                        @RequestParam (required = false) Boolean police ,
+                        @RequestParam (required = false) Boolean diplomat,
+                        @RequestParam (required = false) String q){
+        if(police != null){
+            model.addAttribute("cars", carRepo.findAllByPlateIsLike("RB%"));
+        }else if(diplomat != null) {
+            model.addAttribute("cars", carRepo.findAllByPlateIsLike("DT%"));
+        }else if(q != null){
+            if(!q.matches("^[a-zA-Z0-9-]*$") && q.length() < 7) {
+                model.addAttribute("cars", carRepo.findAllByPlateIsLike("%" + q + "%"));
+            } else {
+                model.addAttribute("error","Sorry, the submitted licence plate is not valid");
+            }
+        }else{
+            model.addAttribute("cars" , carRepo.findAll());
         }
         return "cars";
     }
 
     @GetMapping(value = "/search/{brand}")
-    public String searchByBrand(Model model , @RequestParam (required = true) String search2){
-        if(search2 != null) {
-            model.addAttribute("cars", carRepo.findAllByBrandIsLike("%" + search2 + "%"));
-        }
+    public String brand(Model model , @PathVariable String brand){
+        model.addAttribute("cars", carRepo.findAllByBrand(brand));
         return "cars";
     }
 
-    @GetMapping("/{id}/edit")
-    public String edit(Model model, @PathVariable("plate") String plate) {
-        model.addAttribute("plate", carRepo.findOne(plate).getPlate());
-        model.addAttribute("policecar", carRepo.findOne(plate).isPoliceCar());
-        model.addAttribute("diplomat", carRepo.findOne(plate).isDiplomat());
-        this.plate = plate;
-        return "update";
+    @GetMapping(value = "api/search/{brand}")
+    @ResponseBody
+    public ApiResponse api(@PathVariable String brand) {
+        return new ApiResponse(carRepo.findAllByBrand(brand));
     }
 
-    @PostMapping("/edit/update")
-    public String update(@RequestParam("/") String plates,
-                         @RequestParam(name = "policecar", required = false) String policeCar,
-                         @RequestParam(name = "diplomat", required = false) String diplomat){
-        LicencePlate save = carRepo.findOne(plate);
-        if(!plates.equals("")){
-            save.setPlate(plates);
-        }
-        save.setPoliceCar(Boolean.valueOf(policeCar));
-        save.setDiplomat(Boolean.valueOf(diplomat));
-        carRepo.save(save);
-        return "redirect:/cars";
-
+    public List<LicencePlate> findAllByPlateStartingWith(String plateStart){
+        return carRepo.findAllByBrandIsLike(plateStart + "%");
     }
-
-
-
-
 }
